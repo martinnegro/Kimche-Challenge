@@ -1,8 +1,9 @@
 import React from "react";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
-import Data from "./components/Data";
 import GlobalCss from "./styledComponents/global.css";
 import { Title } from "./styledComponents";
+import DataContextProvider from "./contexts/DataContext";
+import DataDisplay from './components/DataDisplay'
 
 const { REACT_APP_API_URL } = process.env
 
@@ -13,9 +14,11 @@ const client = new ApolloClient({
 
 const App = () => (
   <ApolloProvider client={client}>
+    <DataContextProvider>
     <GlobalCss />
-    <Title>Country Search</Title>
-    <Data />
+      <Title>Country Search</Title>
+      <DataDisplay/>
+    </DataContextProvider>
   </ApolloProvider>
 );
 export default App;

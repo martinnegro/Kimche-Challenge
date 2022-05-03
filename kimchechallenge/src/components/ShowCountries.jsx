@@ -9,6 +9,7 @@ import {
 import { Group, GroupsContainer, GroupTitle } from '../styledComponents'
 
 const ShowCountries = ({ filteredCountries }) => {
+    console.log(filteredCountries)
     return (
         <GroupsContainer>
             {
