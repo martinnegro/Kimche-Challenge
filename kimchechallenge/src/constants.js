@@ -6,6 +6,10 @@ export const GET_COUNTRIES =  gql`
             code
             name
             emoji
+            native
+            phone
+            capital
+            currency
             continent { code }
             languages { code }
         }
@@ -39,6 +43,5 @@ export const GET_LANGUAGES = gql`
 export const groupByConstants = {
     CONTINENT: 'continent',
     LANGUAGE: 'languages'
-
 }
 

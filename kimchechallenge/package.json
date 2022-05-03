@@ -10,8 +10,10 @@
     "graphql": "^15.1.0",
     "lodash.debounce": "^4.0.8",
     "react": "^16.13.1",
+    "react-accessible-accordion": "^5.0.0",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "styled-components": "^5.3.5"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -33,5 +35,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "resolutions": {
+    "styled-components": "^5"
   }
 }

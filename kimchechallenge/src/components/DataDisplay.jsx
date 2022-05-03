@@ -3,7 +3,7 @@ import { groupByConstants } from '../constants'
 
 import debounce from 'lodash.debounce';
 
-import Input from './Input'
+import NameInput from './NameInput'
 import ButtonPanel from './ButtonPanel'
 import ShowCountries from './ShowCountries'
 import filterCountries from '../utils/filterCountries';
@@ -17,7 +17,7 @@ const DataDisplay = ({ countries, loading, continentsKeys, languagesKeys }) => {
     ,500),[]);
     
     useEffect(() => {
-        if (!countries || value < 1) return setFilteredCountries([]);
+        if (!countries) return setFilteredCountries([]);
         let keys;
         if (groupBy === groupByConstants.CONTINENT) keys = JSON.parse(JSON.stringify(continentsKeys));
         if (groupBy === groupByConstants.LANGUAGE) keys =  JSON.parse(JSON.stringify(languagesKeys));
@@ -29,10 +29,11 @@ const DataDisplay = ({ countries, loading, continentsKeys, languagesKeys }) => {
         if (e.target.name === groupBy) return;
         setGroupBy(e.target.name)
     }
+    
     return (
         <>
-            <Input value={value} onChange={(e) => setValue(e.target.value)}/>
-            <ButtonPanel onClick={handleGroupBy}/>
+            <NameInput value={value} onChange={(e) => setValue(e.target.value)}/>
+            <ButtonPanel onClick={handleGroupBy} groupBy={groupBy}/>
             {
                 loading ?
                 <h1>Wait...</h1>

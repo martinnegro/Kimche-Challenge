@@ -21,7 +21,12 @@ const Data = () => {
     },[data])
     
     return (
-        <DataDisplay countries={data?.countries} loading={loading} continentsKeys={continentsKeys} languagesKeys={languagesKeys}/>
+        <DataDisplay 
+            countries={data?.countries} 
+            loading={loading} 
+            continentsKeys={continentsKeys} 
+            languagesKeys={languagesKeys}
+        />
     )
 }
 
