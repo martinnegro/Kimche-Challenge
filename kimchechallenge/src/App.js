@@ -1,22 +1,21 @@
 import React from "react";
-import "./App.css";
-import ApolloClient from "apollo-boost";
-import { ApolloProvider } from "@apollo/react-hooks";
+import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+import Data from "./components/Data";
+import GlobalCss from "./styledComponents/global.css";
+import { Title } from "./styledComponents";
+
+const { REACT_APP_API_URL } = process.env
 
 const client = new ApolloClient({
-  uri: "https://48p1r2roz4.sse.codesandbox.io",
+  uri: REACT_APP_API_URL,
+  cache: new InMemoryCache()
 });
 
 const App = () => (
   <ApolloProvider client={client}>
-    <div>
-      <h2>
-        My first Apollo app{" "}
-        <span role="img" aria-label="Rocket">
-          🚀
-        </span>
-      </h2>
-    </div>
+    <GlobalCss />
+    <Title>Country Search</Title>
+    <Data />
   </ApolloProvider>
 );
 export default App;
