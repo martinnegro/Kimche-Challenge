@@ -1,9 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
-    --background-body: #202c33;
-    --text-color: #d1d7db;
-
     * {
         box-sizing: border-box;
         --background-body: #202c33;

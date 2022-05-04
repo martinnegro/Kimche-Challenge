@@ -18,7 +18,7 @@ export const Label = styled.label`
     width: 100%;
     padding: 0.5rem;
 
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 1.5rem;
 `
 
@@ -28,6 +28,7 @@ export const GroupToggleButton = styled.button`
     text-align: center;
     font-family: 'Roboto', sans-serif;
     font-size: 1.3rem;
+    color: var(--text-color);
 
     border-top: 2px solid var(--border-color);
     border-bottom: none;
@@ -35,12 +36,11 @@ export const GroupToggleButton = styled.button`
     border-right: ${({ last }) => last ? '0' : '1px solid var(--border-color)'};
 
     background-color: ${({ selected }) => selected ? 'var(--border-color)' : 'transparent'};
-    color: ${({ selected }) => selected ? 'var(--text-color)' : 'var(--border-color)'};
     cursor:  ${({ selected }) => selected ? 'default' : 'pointer'};
     
 
     &:hover {
-        text-shadow: 0px 0px 1px var(--text-color);
+        text-shadow: ${({ selected }) => selected ? '' : '0px 0px 2px var(--text-color)'};
     }
 
     transition: all 400ms ease;
