@@ -3,7 +3,7 @@ import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import GlobalCss from "./styledComponents/global.css";
 import { Title } from "./styledComponents";
 import DataContextProvider from "./contexts/DataContext";
-import DataDisplay from './components/DataDisplay'
+import DataDisplay from './components/DataDisplay/DataDisplay'
 
 const { REACT_APP_API_URL } = process.env
 

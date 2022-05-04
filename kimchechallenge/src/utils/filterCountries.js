@@ -1,5 +1,5 @@
 /*
-    {
+    Arguments: {
         inputValue: string from input for filter countries by name,
         countriesArray: array with all countries from DataContext,
         keys: array with groups elements. it cames in JSON string format to avoid copies by reference.
@@ -15,7 +15,7 @@
 const filterCountries = (inputValue,countriesArray,groupBy,keys) => {
     if (inputValue < 1) return [];
     
-    const parsedKeys = JSON.parse(keys)
+    const parsedKeys = JSON.parse(keys);
     
     const finalArray = countriesArray
     .reduce((acc,country) => {
@@ -30,9 +30,9 @@ const filterCountries = (inputValue,countriesArray,groupBy,keys) => {
             if not
         */
         if (Array.isArray(country[groupBy])) {
-            acc.forEach((k) => country[groupBy].some((l) => l.code === k.code) && k.countries.push(country)  )
+            acc.forEach((key) => country[groupBy].some((l) => l.code === key.code) && key.countries.push(country));
         } else {
-            acc.forEach((c) => c.code === country.continent.code && c.countries.push(country) )
+            acc.forEach((key) => key.code === country.continent.code && key.countries.push(country) )
         }
         return acc
     },parsedKeys)

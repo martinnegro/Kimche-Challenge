@@ -1,16 +1,20 @@
 import React, { createContext, useState, useEffect } from "react";
 import { useQuery } from "@apollo/client";
 
-import { GET_COUNTRIES } from "../constants";
+import { GET_COUNTRIES, groupByConstants } from "../constants";
 
 
 export const DataContext = createContext({});
+/*
+    This component fetches data
+    and destructures it to available countries 
+    and available groups
+*/
 
 const DataContextProvider = ({ children }) => {
     const { loading, _error, data } = useQuery(GET_COUNTRIES);
-    const [ countries, setCountries ] = useState([])
-    const [ continentsKeys, setContinentsKey ] = useState([]);
-    const [ languagesKeys, setLanguagesKey ] = useState([]);
+    const [ countries, setCountries ] = useState(null)
+    const [ keys, setKeys ] = useState(null)
     useEffect(() => {
         if (!data) return;
         setCountries(data.countries)
@@ -23,13 +27,9 @@ const DataContextProvider = ({ children }) => {
             - Store object in JSON string for safe copies.
         */
         let groupKeysMaker = (group) => JSON.stringify(group.map((element) => { return { ...element, countries: [] } }))
-        setContinentsKey(() => {
-            const aux = groupKeysMaker(data?.continents) 
-            return aux
-        })
-        setLanguagesKey(() => {
-            const aux = groupKeysMaker(data?.languages) 
-            return aux
+        setKeys({
+            [groupByConstants.CONTINENT]: groupKeysMaker(data?.continents),
+            [groupByConstants.LANGUAGE]: groupKeysMaker(data?.languages)
         })
     },[data])
 
@@ -38,8 +38,7 @@ const DataContextProvider = ({ children }) => {
             value={{
                 loading,
                 countries,
-                continentsKeys,
-                languagesKeys
+                keys
             }}
         >
             { children }

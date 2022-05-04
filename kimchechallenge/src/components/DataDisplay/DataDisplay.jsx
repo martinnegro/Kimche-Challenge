@@ -1,33 +1,37 @@
 import React, { useContext, useCallback, useEffect, useState } from 'react'
-import { DataContext } from '../contexts/DataContext';
-import { groupByConstants } from '../constants'
+import { DataContext } from '../../contexts/DataContext';
+import { groupByConstants } from '../../constants'
 
 import debounce from 'lodash.debounce';
 
 import NameInput from './NameInput'
 import ButtonPanel from './ButtonPanel'
-import ShowCountries from './ShowCountries'
-import filterCountries from '../utils/filterCountries';
+import ShowCountries from '../ShowCountries/ShowCountries'
+import filterCountries from '../../utils/filterCountries';
+
+/*
+    This component handles the countries filter based 
+    on Input and GroupBy and passes the result to ShowCountries.
+*/
 
 const DataDisplay = () => {
-    const { loading, continentsKeys, languagesKeys, countries } = useContext(DataContext)
+    const { loading, countries, keys } = useContext(DataContext)
     
     const [ inputValue, setInputValue ] = useState('');
     const [ groupBy, setGroupBy ] = useState(groupByConstants.CONTINENT);
     const [ filteredCountries, setFilteredCountries ] = useState([]);
     
-    const debouncedFilterCountries = useCallback(debounce(function (){
+    const debouncedFilterCountries = useCallback(debounce(function(){
         setFilteredCountries(filterCountries(...arguments))
     },450),[]);
     
     useEffect(() => {
-        if (!countries || !groupBy) return setFilteredCountries([]);
-        let keys;
-        if (groupBy === groupByConstants.CONTINENT) keys = continentsKeys;
-        if (groupBy ===  groupByConstants.LANGUAGE) keys =  languagesKeys;
+        if (loading || !countries || !groupBy) return setFilteredCountries([]);
         
-        debouncedFilterCountries(inputValue,countries,groupBy,keys)
-    },[inputValue])
+        const selectedGroupKeys = keys[groupBy]
+        debouncedFilterCountries(inputValue,countries,groupBy,selectedGroupKeys);
+
+    },[inputValue,groupBy])
     
     const handleGroupBy = (e) => {
         e.preventDefault();
