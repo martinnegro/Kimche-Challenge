@@ -6,7 +6,8 @@ import {
     AccordionItemButton,
     AccordionItemPanel,
 } from 'react-accessible-accordion';
-import { Group, GroupsContainer, GroupTitle } from '../styledComponents'
+import { CountryName, Group, GroupsContainer, GroupTitle } from '../styledComponents/styledGroup'
+import CountryPropsList from './CountryPropsList';
 
 const ShowCountries = ({ filteredCountries }) => {
     console.log(filteredCountries)
@@ -24,15 +25,11 @@ const ShowCountries = ({ filteredCountries }) => {
                                     <AccordionItem key={country.code}>
                                         <AccordionItemHeading>
                                             <AccordionItemButton>
-                                                <span role="img">{country.emoji} </span>{country.name}       
+                                                <span role="img">{country.emoji}</span><CountryName> {country.name}</CountryName>       
                                             </AccordionItemButton>
                                         </AccordionItemHeading>
                                         <AccordionItemPanel>
-                                            <ul>
-                                                <li><span role="img" aria-label='capital'>🌆 </span> {country.capital}</li>
-                                                <li><span role="img" aria-label='currency'>💸 </span> {country.currency}</li>
-                                                <li><span role="img" aria-label='prefix phone'>📞 </span> {country.phone}</li>
-                                            </ul>
+                                            <CountryPropsList country={country}/>
                                         </AccordionItemPanel>
                                     </AccordionItem>
                                 ))

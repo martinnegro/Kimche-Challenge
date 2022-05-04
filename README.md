@@ -1,7 +1,7 @@
 # Desafío para Software Engineers
 
-Nombre postulante: Martín Negro
-Link a la app en producción: [LINK DEL DEPLOY]
+- Nombre postulante: Martín Negro
+- Link a la app en producción: [martinnegro.netlify.com](https://kimchechallenge-martinnegro.netlify.app/)
 
 ## Instrucciones
 
