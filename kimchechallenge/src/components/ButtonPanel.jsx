@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { groupByConstants } from '../constants'
-import { GroupToggleButton, GroupToggleForm, Label } from '../styledComponents'
+import { GroupToggleButton, GroupToggleForm, Label } from '../styledComponents/styledForm'
 
 const ButtonPanel = ({ onClick, groupBy }) => {
   return (
