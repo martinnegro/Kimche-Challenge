@@ -6,13 +6,13 @@ import { GET_COUNTRIES, groupByConstants } from "../constants";
 
 export const DataContext = createContext({});
 /*
-    This component fetches data
+    This provider fetches data
     and destructures it to available countries 
     and available groups
 */
-
 const DataContextProvider = ({ children }) => {
-    const { loading, _error, data } = useQuery(GET_COUNTRIES);
+    const { loading: queryLoading, _error, data } = useQuery(GET_COUNTRIES);
+    const [ loading, setLoading ] = useState(true)
     const [ countries, setCountries ] = useState(null)
     const [ keys, setKeys ] = useState(null)
     useEffect(() => {
@@ -32,6 +32,10 @@ const DataContextProvider = ({ children }) => {
             [groupByConstants.LANGUAGE]: groupKeysMaker(data?.languages)
         })
     },[data])
+
+    useEffect(() => {
+        if (countries && keys && !queryLoading) setLoading(false)
+    },[queryLoading,countries,keys])
 
     return (
         <DataContext.Provider
