@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input } from '../styledComponents';
+import { Input } from '../../styledComponents';
 
 const NameInput = ({ value, onChange }) => {
   return (

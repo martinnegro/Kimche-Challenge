@@ -6,10 +6,11 @@ import {
     AccordionItemButton,
     AccordionItemPanel,
 } from 'react-accessible-accordion';
-import { CountryName, Group, GroupsContainer, GroupTitle } from '../styledComponents/styledGroup'
+import { CountryName, Group, GroupsContainer, GroupTitle } from '../../styledComponents/styledGroup'
 import CountryPropsList from './CountryPropsList';
 
 const ShowCountries = ({ filteredCountries }) => {
+    console.log(filteredCountries)
     return (
         <GroupsContainer>
             {

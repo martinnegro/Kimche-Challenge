@@ -1,5 +1,5 @@
 import React from 'react'
-import { PropsListUl, PropsListLi } from '../styledComponents/styledGroup'
+import { PropsListUl, PropsListLi } from '../../styledComponents/styledGroup'
 
 const CountryPropsList = ({ country }) => {
     

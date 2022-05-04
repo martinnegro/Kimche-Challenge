@@ -23,6 +23,10 @@ export const GET_COUNTRIES =  gql`
         }
     }
 `
+
+/*
+    This constants are matched with key name in response
+*/
 export const GET_CONTINENTS = gql`
     {
         continents {
