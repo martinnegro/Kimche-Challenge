@@ -4,6 +4,7 @@ import GlobalCss from "./styledComponents/global.css";
 import { Title } from "./styledComponents";
 import DataContextProvider from "./contexts/DataContext";
 import DataDisplay from './components/DataDisplay/DataDisplay'
+import ThemeContextProvider from "./contexts/ThemeProvider";
 
 const { REACT_APP_API_URL } = process.env
 
@@ -14,11 +15,13 @@ const client = new ApolloClient({
 
 const App = () => (
   <ApolloProvider client={client}>
-    <DataContextProvider>
-    <GlobalCss />
-      <Title>Country Search</Title>
-      <DataDisplay/>
-    </DataContextProvider>
+    <ThemeContextProvider>
+      <DataContextProvider>
+        <GlobalCss />
+        <Title>Country Search</Title>
+        <DataDisplay/>
+      </DataContextProvider>
+    </ThemeContextProvider>
   </ApolloProvider>
 );
 export default App;

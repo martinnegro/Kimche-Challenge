@@ -21,12 +21,12 @@ export const GroupTitle = styled.h3`
 `
 export const CountryName = styled.span`
     font-family: 'Roboto', sans-serif;
-    color: var(--text-color)
+    color: ${({ selected, theme }) => theme.textColor};
 `
 
 export const PropsListUl = styled.ul`
     margin: 0
 `
 export const PropsListLi = styled.li`
-font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', sans-serif;
 `

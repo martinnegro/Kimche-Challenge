@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const GroupToggleForm = styled.form`
     width: 100%;
-    border: solid 2px var(--border-color);
+    border: solid 2px ${({ theme }) => theme.borderColor};
     border-radius: 2px;
 
     display: flex;
@@ -28,19 +28,19 @@ export const GroupToggleButton = styled.button`
     text-align: center;
     font-family: 'Roboto', sans-serif;
     font-size: 1.3rem;
-    color: var(--text-color);
+    color: ${  ({ selected, theme }) => selected ? theme.bgMain : theme.textColor};
+    border: none;
+    border-top: 2px solid ${({ theme }) => theme.borderColor};
+    
+    
 
-    border-top: 2px solid var(--border-color);
-    border-bottom: none;
-    border-left: ${({ first }) => first ? '0' : '1px solid var(--border-color)'};
-    border-right: ${({ last }) => last ? '0' : '1px solid var(--border-color)'};
-
-    background-color: ${({ selected }) => selected ? 'var(--border-color)' : 'transparent'};
-    cursor:  ${({ selected }) => selected ? 'default' : 'pointer'};
+    cursor: ${({ selected }) => selected ? 'default' : 'pointer'};
+    background-color: ${({ selected }) => selected ? ({ theme }) => theme.borderColor : 'transparent'};
+    background-position: 50 50;
     
 
     &:hover {
-        text-shadow: ${({ selected }) => selected ? '' : '0px 0px 2px var(--text-color)'};
+        text-shadow: ${({ selected }) => selected ? '' : `0px 0px 2px ${({ theme }) => theme.textColor}`};
     }
 
     transition: all 400ms ease;

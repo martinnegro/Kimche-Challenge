@@ -11,11 +11,10 @@ export const Input = styled.input`
     font-size: 1.5rem;
     padding: 0.5rem 2rem;
 
-    border: solid 2px grey;
+    border: solid 2px ${({theme}) => theme.borderColor };
     border-radius: 8px;
 
     font-family: 'Roboto', sans-serif;
 
-    background-color: var(--input-bg-color);
-    color: var(--text-color)  
+    background-color: ${({theme}) => theme.inputBgColor};
 `

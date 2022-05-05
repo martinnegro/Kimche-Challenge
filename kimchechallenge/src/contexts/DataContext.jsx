@@ -14,7 +14,7 @@ const DataContextProvider = ({ children }) => {
     const { loading: queryLoading, _error, data } = useQuery(GET_COUNTRIES);
     const [ loading, setLoading ] = useState(true)
     const [ countries, setCountries ] = useState(null)
-    const [ keys, setKeys ] = useState(null)
+    const [ groups, setGroups ] = useState(null)
     useEffect(() => {
         if (!data) return;
         setCountries(data.countries)
@@ -27,22 +27,22 @@ const DataContextProvider = ({ children }) => {
             - Store object in JSON string for safe copies.
         */
         let groupKeysMaker = (group) => JSON.stringify(group.map((element) => { return { ...element, countries: [] } }))
-        setKeys({
+        setGroups({
             [groupByConstants.CONTINENT]: groupKeysMaker(data?.continents),
             [groupByConstants.LANGUAGE]: groupKeysMaker(data?.languages)
         })
     },[data])
 
     useEffect(() => {
-        if (countries && keys && !queryLoading) setLoading(false)
-    },[queryLoading,countries,keys])
+        if (countries && groups && !queryLoading) setLoading(false)
+    },[queryLoading,countries,groups])
 
     return (
         <DataContext.Provider
             value={{
                 loading,
                 countries,
-                keys
+                groups
             }}
         >
             { children }
