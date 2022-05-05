@@ -11,7 +11,6 @@ export default createGlobalStyle`
         
         background-color: ${({ theme }) => theme.bgBody};
         color: ${({ theme }) => theme.textColor};
-        
     }
     #root {
         min-height: 100vh;

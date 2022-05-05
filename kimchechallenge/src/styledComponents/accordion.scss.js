@@ -12,11 +12,11 @@ export default createGlobalStyle`
 
 .accordion__button:hover {
     background-color: ${({ theme }) => theme.borderColor};
-    color: ${({ theme }) => theme.bgMain};
+    color: ${({ theme }) => theme.textColorHover};
 }
 .accordion__button[aria-expanded='true'],
 .accordion__button[aria-selected='true'] {
-    color: ${({ theme }) => theme.bgMain};
+    color: ${({ theme }) => theme.textColorHover};
     background-color: ${({ theme }) => theme.borderColor};
     
 }

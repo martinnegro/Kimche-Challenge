@@ -28,11 +28,10 @@ export const GroupToggleButton = styled.button`
     text-align: center;
     font-family: 'Roboto', sans-serif;
     font-size: 1.3rem;
-    color: ${  ({ selected, theme }) => selected ? theme.bgMain : theme.textColor};
+    color: ${  ({ selected, theme }) => selected ? theme.textColorSelectedButton : theme.textColor};
     border: none;
     border-top: 2px solid ${({ theme }) => theme.borderColor};
-    
-    
+      
 
     cursor: ${({ selected }) => selected ? 'default' : 'pointer'};
     background-color: ${({ selected }) => selected ? ({ theme }) => theme.borderColor : 'transparent'};

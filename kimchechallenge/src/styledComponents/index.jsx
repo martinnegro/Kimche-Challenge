@@ -16,6 +16,7 @@ export const Input = styled.input`
     border-radius: 8px;
 
     font-family: 'Roboto', sans-serif;
+    color: ${({ theme }) => theme.textInputColor};
 
     background-color: ${({theme}) => theme.inputBgColor};
 `
