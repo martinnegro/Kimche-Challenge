@@ -1,19 +1,21 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 import { groupByConstants } from '../../constants'
+import { LanguageContext } from '../../contexts/LangagueContext'
 import { GroupToggleButton, GroupToggleForm, Label } from '../../styledComponents/styledForm'
 
 const ButtonPanel = ({ onClick, groupBy }) => {
+  const { selectedLang } = useContext(LanguageContext);
   return (
     <GroupToggleForm>
-      <Label>Group by:</Label>
+      <Label>{ selectedLang.toggleGroupingForm.label }</Label>
       <GroupToggleButton 
         onClick={onClick}
         first 
         selected={groupBy === groupByConstants.CONTINENT}
         name={ groupByConstants.CONTINENT}
       >
-        {groupByConstants.CONTINENT.toUpperCase()}
+        { selectedLang.toggleGroupingForm.continents }
       </GroupToggleButton>
       <GroupToggleButton 
         onClick={onClick}
@@ -21,7 +23,7 @@ const ButtonPanel = ({ onClick, groupBy }) => {
         selected={groupBy === groupByConstants.LANGUAGE}
         name={ groupByConstants.LANGUAGE }
       >
-        {groupByConstants.LANGUAGE.toUpperCase()}
+        { selectedLang.toggleGroupingForm.languages }
       </GroupToggleButton>
     </GroupToggleForm>
   )

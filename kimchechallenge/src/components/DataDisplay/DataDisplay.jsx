@@ -15,7 +15,7 @@ import filterCountries from '../../utils/filterCountries';
 */
 
 const DataDisplay = () => {
-    const { loading, countries, keys } = useContext(DataContext)
+    const { loading, countries, groups } = useContext(DataContext)
     
     const [ inputValue, setInputValue ] = useState('');
     const [ groupBy, setGroupBy ] = useState(groupByConstants.CONTINENT);
@@ -28,8 +28,8 @@ const DataDisplay = () => {
     useEffect(() => {
         if (loading || !countries || !groupBy) return setFilteredCountries([]);
         
-        const selectedGroupKeys = keys[groupBy]
-        debouncedFilterCountries(inputValue,countries,groupBy,selectedGroupKeys);
+        const selectedGroups = groups[groupBy]
+        debouncedFilterCountries(inputValue,countries,groupBy,selectedGroups);
 
     },[inputValue,groupBy])
     

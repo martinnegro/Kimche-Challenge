@@ -1,41 +1,19 @@
 import React from 'react'
-import {
-    Accordion,
-    AccordionItem,
-    AccordionItemHeading,
-    AccordionItemButton,
-    AccordionItemPanel,
-} from 'react-accessible-accordion';
-import { CountryName, Group, GroupsContainer, GroupTitle } from '../../styledComponents/styledGroup'
-import CountryPropsList from './CountryPropsList';
+
+import AccordionCss from '../../styledComponents/accordion.scss';
+import { GroupsContainer } from '../../styledComponents/styledGroup';
+import GroupCard from './components/GroupCard';
 
 const ShowCountries = ({ filteredCountries }) => {
     console.log(filteredCountries)
     return (
         <GroupsContainer>
+            <AccordionCss />
             {
-                filteredCountries?.map((key) => {
-                    if (key.countries.length === 0) return
+                filteredCountries?.map((group) => {
+                    if (group.countries.length === 0) return
                     return (
-                        <Group key={key.code}>
-                            <GroupTitle>{key.name}</GroupTitle>
-                            <Accordion allowZeroExpanded>
-                            {
-                                key.countries.map((country) =>(
-                                    <AccordionItem key={country.code}>
-                                        <AccordionItemHeading>
-                                            <AccordionItemButton>
-                                                <span role="img">{country.emoji}</span><CountryName> {country.name}</CountryName>       
-                                            </AccordionItemButton>
-                                        </AccordionItemHeading>
-                                        <AccordionItemPanel>
-                                            <CountryPropsList country={country}/>
-                                        </AccordionItemPanel>
-                                    </AccordionItem>
-                                ))
-                            }
-                            </Accordion>
-                        </Group>
+                        <GroupCard key={group.code} group={group}/>
                     )
                 })
             }
