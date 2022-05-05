@@ -39,7 +39,8 @@ export const GroupToggleButton = styled.button`
     
 
     &:hover {
-        text-shadow: ${({ selected }) => selected ? '' : `0px 0px 2px ${({ theme }) => theme.textColor}`};
+        background-color: ${({ selected, theme }) => !selected && theme.buttonBgHover};
+        color:  ${({ selected, theme }) => !selected && theme.buttonTextHover}
     }
 
     transition: all 400ms ease;

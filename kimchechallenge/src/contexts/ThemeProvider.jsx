@@ -9,6 +9,8 @@ const theming = {
         textInputColor: '#d1d7db',
         textColorSelectedButton: '#d1d7db',
         textColorAlternative: 'rgba(233,237,239,0.88)',
+        buttonBgHover: 'rgba(134,150,160,0.15)',
+        buttonTextHover: '#d1d7db',
         inputBgColor: '#2a3942',
         borderColor: 'rgba(134,150,160,0.15)',
     },
@@ -20,6 +22,8 @@ const theming = {
         textColorSelectedButton: '#fdfac7',
         textColorHover: '#fdfac7',
         textColorAlternative: 'rgba(233,237,239,0.88)',
+        buttonBgHover: 'rgba(40, 40, 32, 0.552)',
+        buttonTextHover: '#fdfac7',
         inputBgColor: '#fdfac7',
         borderColor: '#282820',
     }

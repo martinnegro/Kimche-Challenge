@@ -15,7 +15,7 @@ const ButtonPanel = ({ onClick, groupBy }) => {
         selected={groupBy === groupByConstants.CONTINENT}
         name={ groupByConstants.CONTINENT}
       >
-        {selectedLang.toggleGroupingForm.continents}
+        { selectedLang.toggleGroupingForm.continents }
       </GroupToggleButton>
       <GroupToggleButton 
         onClick={onClick}
@@ -23,7 +23,7 @@ const ButtonPanel = ({ onClick, groupBy }) => {
         selected={groupBy === groupByConstants.LANGUAGE}
         name={ groupByConstants.LANGUAGE }
       >
-        {selectedLang.toggleGroupingForm.languages}
+        { selectedLang.toggleGroupingForm.languages }
       </GroupToggleButton>
     </GroupToggleForm>
   )
