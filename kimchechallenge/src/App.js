@@ -5,6 +5,7 @@ import { Title } from "./styledComponents";
 import DataContextProvider from "./contexts/DataContext";
 import DataDisplay from './components/DataDisplay/DataDisplay'
 import ThemeContextProvider from "./contexts/ThemeProvider";
+import Switches from "./components/Switches/Switches";
 
 const { REACT_APP_API_URL } = process.env
 
@@ -19,6 +20,7 @@ const App = () => (
       <DataContextProvider>
         <GlobalCss />
         <Title>Country Search</Title>
+        <Switches />
         <DataDisplay/>
       </DataContextProvider>
     </ThemeContextProvider>

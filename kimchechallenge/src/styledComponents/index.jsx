@@ -10,6 +10,7 @@ export const Input = styled.input`
     width: 100%;
     font-size: 1.5rem;
     padding: 0.5rem 2rem;
+    flex-grow: 0;
 
     border: solid 2px ${({theme}) => theme.borderColor };
     border-radius: 8px;

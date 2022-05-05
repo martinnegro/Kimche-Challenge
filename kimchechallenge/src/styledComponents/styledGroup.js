@@ -21,7 +21,7 @@ export const GroupTitle = styled.h3`
 `
 export const CountryName = styled.span`
     font-family: 'Roboto', sans-serif;
-    color: ${({ selected, theme }) => theme.textColor};
+    vertical-align: middle;
 `
 
 export const PropsListUl = styled.ul`

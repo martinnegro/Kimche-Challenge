@@ -1,4 +1,4 @@
-import React,{ useState } from "react";
+import React,{ useState, createContext } from "react";
 import { ThemeProvider } from "styled-components";
 
 const theming = {
@@ -14,24 +14,31 @@ const theming = {
         bgBody: '#fff',
         bgMain: '#fdfac7',
         textColor: '#282820',
-        textFormColor: '#535241',
+        textSelectedButton: '#535241',
         textColorAlternative: 'rgba(233,237,239,0.88)',
         inputBgColor: '#fdfac7',
         borderColor: '#282820',
     }
 }
 
+export const ThemeContext = createContext(theming.light)
+
 const ThemeContextProvider = ({ children }) => {
     const [ theme, setTheme ] = useState(theming.light);
 
-
+    const handleSwitchTheme = (boolean) => {
+        setTheme( boolean ? theming.dark : theming.light ); 
+    }
 
     return (
         <ThemeProvider
             theme={theme}
-            
         >
-            { children }
+            <ThemeContext.Provider
+                value={handleSwitchTheme}
+            >
+                { children }
+            </ThemeContext.Provider>
         </ThemeProvider>
     )
 };

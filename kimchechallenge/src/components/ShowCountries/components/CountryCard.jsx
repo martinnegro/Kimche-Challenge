@@ -13,7 +13,7 @@ const CountryCard = ({ country }) => {
     <AccordionItem key={country.code}>
         <AccordionItemHeading>
             <AccordionItemButton>
-                <span role="img">{country.emoji || '-'}</span><CountryName>{country.name || '-'}</CountryName>       
+                <span role="img">{country.emoji || '-'}</span><CountryName> {country.name || '-'}</CountryName>       
             </AccordionItemButton>
         </AccordionItemHeading>
         <AccordionItemPanel>

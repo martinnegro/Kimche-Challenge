@@ -16,8 +16,8 @@ export default createGlobalStyle`
 }
 .accordion__button[aria-expanded='true'],
 .accordion__button[aria-selected='true'] {
-    background-color: ${({ theme }) => theme.borderColor};
     color: ${({ theme }) => theme.bgMain};
+    background-color: ${({ theme }) => theme.borderColor};
     
 }
 
@@ -42,14 +42,7 @@ export default createGlobalStyle`
     border: 1px solid ${({ theme }) => theme.borderColor};
     padding-left: 2.5rem;
     padding-block: 0.5rem;
-    animation: fadein 500ms ease-in;
     
-    &:before {
-        content: '';
-        width: 100%;
-        height: 100%;
-        background-color: black;
-    }
 }
 
 
