@@ -7,9 +7,7 @@ export const GroupToggleForm = styled.form`
 
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;    
-    flex-shrink: 0;
-
+    justify-content: space-evenly;    
     overflow: hidden;    
 `
 export const Label = styled.label`
@@ -23,7 +21,7 @@ export const Label = styled.label`
 `
 
 export const GroupToggleButton = styled.button`
-    flex-grow: 1;
+    flex:  1 1 0;
     padding: 0.5rem;
     text-align: center;
     font-family: 'Roboto', sans-serif;
