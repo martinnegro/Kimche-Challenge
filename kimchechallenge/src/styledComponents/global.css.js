@@ -14,7 +14,6 @@ export default createGlobalStyle`
     }
     #root {
         min-height: 100vh;
-        height: content;
         width: 850px;
         
         margin-inline: auto;
