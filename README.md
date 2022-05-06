@@ -37,3 +37,13 @@ Acá van algunas cosas que pueden ser útiles (o no 👀):
 - [Eslint](https://eslint.org/)
 - [Eslint airbnb](https://www.npmjs.com/package/eslint-config-airbnb)
 - [Husky](https://www.npmjs.com/package/husky)
+
+--------------
+# Pregunta abierta
+
+"La tabla que contiene la información correspondiente a la asistencia diaria de un niño en un colegio tiene 90 millones de filas. Todas las tablas del sistema existen en la misma BDD en MySQL. La lógica del backend que actualiza la información correspondiente al pasar la asistencia tiene un tiempo de servicio p95 de 10 segundos. El equipo está interesado en bajar este tiempo para mejorar la experiencia del usuario (y porque nos gusta pensar en Kimche como un Ferrari). ¿Qué propondrías para enfrentar el problema? Esta pregunta es abierta, no hay respuestas malas. Puedes proponer arquitectura, tecnologías, diseño, etc."
+
+## Respuesta
+
+Teniendo en cuenta la dinámica de las asistencias (el INSERT se realiza una vez por día o dos si tuviera que asistir a varias actividades) se podría realizar un cache del query necesario para mostrar la información, que se actualice cada vez que se realice un registro nuevo, para así devolver el cache sin tener que recorrer la BDD. Esto puede ser logrado con Redis, por ejemplo.
+Otra estrategia puede ser un  renderizado estático que se actualice con cada registro nuevo, posible con, por ejemplo NextJS.
