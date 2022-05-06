@@ -3,9 +3,8 @@ import styled from 'styled-components';
 export const SwitchesContainer = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    align-content: flex-end;
+    justify-content: flex-end;
     gap: 5px;
 `
 

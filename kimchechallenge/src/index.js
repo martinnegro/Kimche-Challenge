@@ -2,12 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import LangagueContextProvider from './contexts/LangagueContext';
+import ThemeContextProvider from "./contexts/ThemeProvider";
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
     <LangagueContextProvider>
-      <App />
+      <ThemeContextProvider>
+        <App />
+      </ThemeContextProvider>
     </LangagueContextProvider>
   </React.StrictMode>,
   document.getElementById('root')

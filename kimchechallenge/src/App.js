@@ -4,7 +4,7 @@ import GlobalCss from "./styledComponents/global.css";
 import { Title } from "./styledComponents";
 import DataContextProvider from "./contexts/DataContext";
 import DataDisplay from './components/DataDisplay/DataDisplay'
-import ThemeContextProvider from "./contexts/ThemeProvider";
+
 import Switches from "./components/Switches/Switches";
 import { LanguageContext } from "./contexts/LangagueContext";
 
@@ -20,14 +20,12 @@ const client = new ApolloClient({
     
     return (
     <ApolloProvider client={client}>
-      <ThemeContextProvider>
           <DataContextProvider>
             <GlobalCss />
             <Title>{selectedLang.title}</Title>
             <Switches />
             <DataDisplay/>
           </DataContextProvider>
-      </ThemeContextProvider>
     </ApolloProvider>
   )
 };

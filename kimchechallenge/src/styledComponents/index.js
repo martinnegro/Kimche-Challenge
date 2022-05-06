@@ -5,6 +5,7 @@ export const Title = styled.h1`
     align-self: start;
     margin-bottom: 0;
     font-size: 3rem;
+    
 `
 export const Input = styled.input`
     width: 100%;
